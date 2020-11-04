@@ -5,5 +5,7 @@ Rails.application.routes.draw do
       resources :trips, except: [:new, :edit]
       resources :trip_prictures, except: [:new, :edit]
       resources :users
+    end 
+  end 
 
 end
