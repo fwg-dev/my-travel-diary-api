@@ -4,9 +4,8 @@ class Api::V1::TripsController < ApplicationController
 
   # GET /attractions
   def index
-    @trips = Trip.all
-
-    render json: @trips
+    # byebug
+   render json: Trip.all
   end
 
   def create 
@@ -36,17 +35,17 @@ class Api::V1::TripsController < ApplicationController
     else 
       render json:{ message: "Unable to Delete Trip"}, status: 400
     end
-  end
+
+   end
   
   private 
 
   def set_trip 
-    @trip = Trip.find_by(:id params[:id])
+    @trip = Trip.find_by(id: params[:id])
   end
 
   def trip_params 
-    params.require(:trip).permit(:title, :city, :country, :date_trip, :user_id)
+    params.require(:trip).permit(:img_url, :title, :city, :country, :date_of_trip)
   end
 
-
-end
+end 
